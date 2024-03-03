@@ -1,0 +1,24 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	worktree = ../../../../themes/LoveIt
+[remote "origin"]
+	url = git@github.com:jorkle/jorkle-hugo-theme.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "upstream"]
+	url = https://github.com/dillonzq/LoveIt.git
+	fetch = +refs/heads/*:refs/remotes/upstream/*
+[checkout]
+	defaultRemote = origin
+[push]
+	default = matching
+	autoSetupRemote = true
+[branch "working"]
+	remote = origin
+	merge = refs/heads/working
