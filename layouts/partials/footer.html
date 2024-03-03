@@ -36,15 +36,13 @@
 
                 {{- /* License */ -}}
                 {{- with .Site.Params.footer.license -}}
-			<br></br><span class="license">{{ . | safeHTML }}</span>
+			<span> - <span class="license">{{ . | safeHTML }}</span>
                 {{- end -}}
-
                 {{- /* ICP */ -}}
                 {{- with .Site.Params.footer.icp -}}
                     <span class="icp">{{ . | safeHTML }}</span>
                 {{- end -}}
             </div>
         </div>
-	<script type="text/javascript" src="js/include.js"></script>
     </footer>
 {{- end -}}

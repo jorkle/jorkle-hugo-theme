@@ -44,5 +44,50 @@
 
         {{- /* Load JavaScript scripts and CSS */ -}}
         {{- partial "assets.html" . -}}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LZ9GCQKBJ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-5LZ9GCQKBJ');
+
+            
+            // analyticsConsentDenied is triggered once the user chooses the "Disallow Cookies" option.
+            function analyticsConsentDenied() {
+                console.log("test");
+                var b = document.getElementById("cookieconsent");
+                b.classList.add("cc-invisible");
+                gtag('consent', 'update', {
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'ad_storage': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            }
+
+            // collects analytical data by default.
+            gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'granted'
+            });
+
+
+            window.onload = function() {
+                    var a = document.getElementById("DenyCookies");
+                    a.onclick = function() {
+                        analyticsConsentDenied();
+                        const d = new Date();
+                        d.setTime(d.getTime() + (365*24*60*60*1000));
+                        let expires = "expires="+ d.toUTCString();
+                        document.cookie = "cookieconsent_status=dismiss; " + expires + "; path=/";
+                        return false;
+                    }
+            }
+
+        </script>
     </body>
 </html>
