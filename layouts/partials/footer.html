@@ -1,5 +1,10 @@
 {{- if ne .Site.Params.footer.enable false -}}
     <footer class="footer">
+        <style>
+            .flexbox {
+                display: flex;
+            }
+        </style>
         <div class="footer-container">
             {{- /* Custom Content */ -}}
             {{- with .Site.Params.footer.custom -}}
@@ -36,7 +41,7 @@
 
                 {{- /* License */ -}}
                 {{- with .Site.Params.footer.license -}}
-			<span> - <span class="license">{{ . | safeHTML }}</span>
+			<span> | </span> <span class="license">{{ . | safeHTML }}</span>
                 {{- end -}}
                 {{- /* ICP */ -}}
                 {{- with .Site.Params.footer.icp -}}
